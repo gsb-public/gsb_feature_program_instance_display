@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the GSB Feature Program Instance Display feature.
+ */
+
+include_once 'gsb_feature_program_instance_display.features.inc';
