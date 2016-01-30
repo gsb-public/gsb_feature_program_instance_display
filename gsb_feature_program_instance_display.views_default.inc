@@ -174,6 +174,46 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Instance Label */
+  $handler->display->display_options['fields']['field_instance_label']['id'] = 'field_instance_label';
+  $handler->display->display_options['fields']['field_instance_label']['table'] = 'field_data_field_instance_label';
+  $handler->display->display_options['fields']['field_instance_label']['field'] = 'field_instance_label';
+  $handler->display->display_options['fields']['field_instance_label']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_instance_label']['settings'] = array(
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
+  /* Field: Content: Display on Program and Program Finder */
+  $handler->display->display_options['fields']['field_display_on_finder']['id'] = 'field_display_on_finder';
+  $handler->display->display_options['fields']['field_display_on_finder']['table'] = 'field_data_field_display_on_finder';
+  $handler->display->display_options['fields']['field_display_on_finder']['field'] = 'field_display_on_finder';
+  $handler->display->display_options['fields']['field_display_on_finder']['label'] = 'Display on Program Overview';
+  $handler->display->display_options['fields']['field_display_on_finder']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_display_on_finder']['type'] = 'list_key';
+  $handler->display->display_options['fields']['field_display_on_finder']['settings'] = array(
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
+  /* Field: Content: Is Application Open? */
+  $handler->display->display_options['fields']['field_is_application_open']['id'] = 'field_is_application_open';
+  $handler->display->display_options['fields']['field_is_application_open']['table'] = 'field_data_field_is_application_open';
+  $handler->display->display_options['fields']['field_is_application_open']['field'] = 'field_is_application_open';
+  $handler->display->display_options['fields']['field_is_application_open']['label'] = 'Application Open';
+  $handler->display->display_options['fields']['field_is_application_open']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_is_application_open']['type'] = 'list_key';
+  $handler->display->display_options['fields']['field_is_application_open']['settings'] = array(
+    'conditions' => array(
+      0 => array(
+        'condition' => '',
+      ),
+    ),
+  );
   /* Field: Content: Edit link (in modal) */
   $handler->display->display_options['fields']['edit_node_modal']['id'] = 'edit_node_modal';
   $handler->display->display_options['fields']['edit_node_modal']['table'] = 'views_entity_node';
