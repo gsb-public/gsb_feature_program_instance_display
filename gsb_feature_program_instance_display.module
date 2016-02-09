@@ -5,3 +5,56 @@
  */
 
 include_once 'gsb_feature_program_instance_display.features.inc';
+/**
+ * Implementation of hook_form_FORM_ID_alter()
+ *
+ * Provides customizations to the views content type settings form
+ */
+function gsb_feature_program_instance_display_form_views_content_views_panes_content_type_edit_form_alter(&$form, &$form_state, $form_id) {
+
+  if (in_array($form_state['subtype_name'], array('ee_programs-upcoming_deadlines'))) {
+    $conf = $form_state['conf'];
+    $form['edit_url']['#label'] = "CTA URL";
+    $form['cta_title'] = array(
+      '#title' => t('CTA Title'),
+      '#type' => 'textfield',
+      '#weight' => -99,
+      '#default_value' => !empty($conf['cta_title']) ? $conf['cta_title'] : '',
+    );
+    $form['cta_url'] = array(
+      '#title' => t('CTA URL'),
+      '#type' => 'textfield',
+      '#weight' => -99,
+      '#default_value' => !empty($conf['cta_url']) ? $conf['cta_url'] : '',
+    );
+    $form['#validate'][] = 'gsb_feature_program_instance_display_form_validate';
+    $form['#submit'][] = 'gsb_feature_program_instance_display_form_submit';
+    return $form;
+
+  }
+}
+
+function gsb_feature_program_instance_display_form_validate($form, &$form_state) {
+  if ($form_state['values']['cta_title'] != '' && $form_state['values']['cta_url'] == '') {
+    form_set_error('cta_url', t('CTA Url is required.'));
+  }
+  if ($form_state['values']['cta_title'] == '' && $form_state['values']['cta_url'] != '') {
+    form_set_error('cta_title', t('CTA title is required.'));
+  }
+}
+
+function gsb_feature_program_instance_display_form_submit($form, &$form_state) {
+  $form_state['conf']['cta_url'] = $form_state['values']['cta_url'];
+  $form_state['conf']['cta_title'] = $form_state['values']['cta_title'];
+}
+
+function gsb_feature_program_instance_display_panels_pane_content_alter($content, $pane, $args, $context) {
+
+  if ($content && $content->subtype == 'ee_programs-upcoming_deadlines') {
+    if (!empty($pane->configuration['cta_title'])) {
+      $url_parts = drupal_parse_url($pane->configuration['cta_url']);
+      $url_parts['html'] = TRUE;
+      $content->content['#markup'] .= '<div>' . l($pane->configuration['cta_title'], $url_parts['path'], $url_parts) . '</div>';
+    }
+  }
+}
