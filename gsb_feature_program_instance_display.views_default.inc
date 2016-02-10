@@ -74,7 +74,7 @@ function gsb_feature_program_instance_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Field: Source Publication Date */
+  /* Field: Field: Publication Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -97,7 +97,7 @@ function gsb_feature_program_instance_display_views_default_views() {
       ),
     ),
   );
-  /* Sort criterion: Field: Source Publication Date (field_date) */
+  /* Sort criterion: Field: Publication Date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
@@ -269,7 +269,7 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['filters']['field_program_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_program_category_tid']['vocabulary'] = 'program_category';
   $handler->display->display_options['filters']['field_program_category_tid']['error_message'] = FALSE;
-  /* Filter criterion: Field: Source Publication Date (field_date) */
+  /* Filter criterion: Field: Publication Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -308,6 +308,282 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
   $handler->display->display_options['allow']['exposed_form_configure'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 0;
+
+  /* Display: Upcoming Programs */
+  $handler = $view->new_display('panel_pane', 'Upcoming Programs', 'upcoming_programs');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'entity';
+  $handler->display->display_options['row_options']['view_mode'] = 'compact';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['sorts']['title']['relationship'] = 'field_program_target_id';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'program_instance' => 'program_instance',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: All Topics (field_program_topics) */
+  $handler->display->display_options['filters']['field_program_topics_tid']['id'] = 'field_program_topics_tid';
+  $handler->display->display_options['filters']['field_program_topics_tid']['table'] = 'field_data_field_program_topics';
+  $handler->display->display_options['filters']['field_program_topics_tid']['field'] = 'field_program_topics_tid';
+  $handler->display->display_options['filters']['field_program_topics_tid']['relationship'] = 'field_program_target_id';
+  $handler->display->display_options['filters']['field_program_topics_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_program_topics_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_program_topics_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['operator_id'] = 'field_program_topics_tid_op';
+  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['label'] = 'Keyword(s)';
+  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['operator'] = 'field_program_topics_tid_op';
+  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['identifier'] = 'field_program_topics_tid';
+  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    11 => 0,
+    151 => 0,
+    16 => 0,
+    21 => 0,
+    241 => 0,
+    71 => 0,
+    61 => 0,
+    171 => 0,
+    56 => 0,
+    66 => 0,
+    201 => 0,
+    221 => 0,
+    216 => 0,
+    226 => 0,
+    231 => 0,
+    246 => 0,
+    236 => 0,
+    31 => 0,
+    36 => 0,
+    41 => 0,
+    91 => 0,
+    146 => 0,
+    136 => 0,
+    26 => 0,
+    46 => 0,
+    51 => 0,
+    81 => 0,
+    86 => 0,
+    96 => 0,
+    101 => 0,
+    106 => 0,
+    116 => 0,
+    121 => 0,
+    126 => 0,
+    131 => 0,
+    141 => 0,
+    156 => 0,
+    161 => 0,
+    166 => 0,
+    176 => 0,
+    181 => 0,
+    186 => 0,
+    191 => 0,
+    206 => 0,
+    211 => 0,
+    251 => 0,
+    256 => 0,
+    261 => 0,
+    266 => 0,
+    271 => 0,
+    276 => 0,
+    281 => 0,
+    291 => 0,
+    296 => 0,
+  );
+  $handler->display->display_options['filters']['field_program_topics_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_program_topics_tid']['vocabulary'] = 'program_topic';
+  $handler->display->display_options['filters']['field_program_topics_tid']['error_message'] = FALSE;
+  /* Filter criterion: Content: Key Topics (field_key_program_topics) */
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['id'] = 'field_key_program_topics_tid';
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['table'] = 'field_data_field_key_program_topics';
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['field'] = 'field_key_program_topics_tid';
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['relationship'] = 'field_program_target_id';
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['expose']['operator_id'] = 'field_key_program_topics_tid_op';
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['expose']['label'] = 'Program Topic';
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['expose']['operator'] = 'field_key_program_topics_tid_op';
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['expose']['identifier'] = 'field_key_program_topics_tid';
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    11 => 0,
+    151 => 0,
+    16 => 0,
+    21 => 0,
+    241 => 0,
+    71 => 0,
+    61 => 0,
+    171 => 0,
+    56 => 0,
+    66 => 0,
+    201 => 0,
+    221 => 0,
+    216 => 0,
+    226 => 0,
+    231 => 0,
+    246 => 0,
+    236 => 0,
+    31 => 0,
+    36 => 0,
+    41 => 0,
+    91 => 0,
+    146 => 0,
+    136 => 0,
+    26 => 0,
+    46 => 0,
+    51 => 0,
+    81 => 0,
+    86 => 0,
+    96 => 0,
+    101 => 0,
+    106 => 0,
+    116 => 0,
+    121 => 0,
+    126 => 0,
+    131 => 0,
+    141 => 0,
+    156 => 0,
+    161 => 0,
+    166 => 0,
+    176 => 0,
+    181 => 0,
+    186 => 0,
+    191 => 0,
+    206 => 0,
+    211 => 0,
+    251 => 0,
+    256 => 0,
+    261 => 0,
+    266 => 0,
+    271 => 0,
+    276 => 0,
+    281 => 0,
+    291 => 0,
+    296 => 0,
+  );
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['vocabulary'] = 'program_topic';
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['error_message'] = FALSE;
+  /* Filter criterion: Content: Program Category (field_program_category) */
+  $handler->display->display_options['filters']['field_program_category_tid']['id'] = 'field_program_category_tid';
+  $handler->display->display_options['filters']['field_program_category_tid']['table'] = 'field_data_field_program_category';
+  $handler->display->display_options['filters']['field_program_category_tid']['field'] = 'field_program_category_tid';
+  $handler->display->display_options['filters']['field_program_category_tid']['relationship'] = 'field_program_target_id';
+  $handler->display->display_options['filters']['field_program_category_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_program_category_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_program_category_tid']['expose']['operator_id'] = 'field_program_category_tid_op';
+  $handler->display->display_options['filters']['field_program_category_tid']['expose']['label'] = 'Program Category';
+  $handler->display->display_options['filters']['field_program_category_tid']['expose']['operator'] = 'field_program_category_tid_op';
+  $handler->display->display_options['filters']['field_program_category_tid']['expose']['identifier'] = 'field_program_category_tid';
+  $handler->display->display_options['filters']['field_program_category_tid']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['field_program_category_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    11 => 0,
+    151 => 0,
+    16 => 0,
+    21 => 0,
+    241 => 0,
+    71 => 0,
+    61 => 0,
+    171 => 0,
+    56 => 0,
+    66 => 0,
+    201 => 0,
+    221 => 0,
+    216 => 0,
+    226 => 0,
+    231 => 0,
+    246 => 0,
+    236 => 0,
+    31 => 0,
+    36 => 0,
+    41 => 0,
+    91 => 0,
+    146 => 0,
+    136 => 0,
+    26 => 0,
+    46 => 0,
+    51 => 0,
+    81 => 0,
+    86 => 0,
+    96 => 0,
+    101 => 0,
+    106 => 0,
+    116 => 0,
+    121 => 0,
+    126 => 0,
+    131 => 0,
+    141 => 0,
+    156 => 0,
+    161 => 0,
+    166 => 0,
+    176 => 0,
+    181 => 0,
+    186 => 0,
+    191 => 0,
+    206 => 0,
+    211 => 0,
+    251 => 0,
+    256 => 0,
+    261 => 0,
+    266 => 0,
+    271 => 0,
+    276 => 0,
+    281 => 0,
+    291 => 0,
+    296 => 0,
+  );
+  $handler->display->display_options['filters']['field_program_category_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_program_category_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_program_category_tid']['vocabulary'] = 'program_category';
+  $handler->display->display_options['filters']['field_program_category_tid']['error_message'] = FALSE;
+  $handler->display->display_options['pane_title'] = 'Programs: Multiple Criteria';
+  $handler->display->display_options['pane_category']['name'] = 'Customizable Content Lists';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['set_view_mode'] = 'set_view_mode';
+  $handler->display->display_options['allow']['set_style_plugin'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
+  $handler->display->display_options['allow']['exposed_form_configure'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 0;
+  $handler->display->display_options['exposed_form_overrides'] = array(
+    'filters' => array(
+      'field_program_topics_tid' => '',
+      'field_program_category_tid' => '',
+    ),
+  );
   $export['ee_programs'] = $view;
 
   $view = new view();
