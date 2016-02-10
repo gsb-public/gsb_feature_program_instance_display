@@ -319,6 +319,10 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['row_options']['view_mode'] = 'compact';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Date -  start date (field_instance_date) */
+  $handler->display->display_options['sorts']['field_instance_date_value']['id'] = 'field_instance_date_value';
+  $handler->display->display_options['sorts']['field_instance_date_value']['table'] = 'field_data_field_instance_date';
+  $handler->display->display_options['sorts']['field_instance_date_value']['field'] = 'field_instance_date_value';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -563,6 +567,13 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['filters']['field_program_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_program_category_tid']['vocabulary'] = 'program_category';
   $handler->display->display_options['filters']['field_program_category_tid']['error_message'] = FALSE;
+  /* Filter criterion: Content: Date -  start date (field_instance_date) */
+  $handler->display->display_options['filters']['field_instance_date_value']['id'] = 'field_instance_date_value';
+  $handler->display->display_options['filters']['field_instance_date_value']['table'] = 'field_data_field_instance_date';
+  $handler->display->display_options['filters']['field_instance_date_value']['field'] = 'field_instance_date_value';
+  $handler->display->display_options['filters']['field_instance_date_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_instance_date_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_instance_date_value']['default_date'] = 'today';
   $handler->display->display_options['pane_title'] = 'Programs: Multiple Criteria';
   $handler->display->display_options['pane_category']['name'] = 'Customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
