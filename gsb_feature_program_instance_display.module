@@ -111,7 +111,7 @@ function gsb_feature_program_instance_display_panels_pane_content_alter($content
        if ($pane->configuration['open_new_window'] == 1) {
          $url_parts['attributes'] = array('target' => '_blank');
        }
-      $content->content['#markup'] .= '<div>' . l($pane->configuration['cta_title'], $url_parts['path'], $url_parts) . '</div>';
+      $content->content['#markup'] .= '<div class="list-cta">' . l($pane->configuration['cta_title'], $url_parts['path'], $url_parts) . '</div>';
     }
     if (!empty($pane->configuration['overlay_color'])) {
       $content->css_class = $pane->configuration['overlay_color'];
