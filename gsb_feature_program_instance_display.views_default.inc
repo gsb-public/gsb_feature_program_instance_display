@@ -74,7 +74,7 @@ function gsb_feature_program_instance_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Field: Publication Date */
+  /* Field: Field: Source Publication Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -97,7 +97,7 @@ function gsb_feature_program_instance_display_views_default_views() {
       ),
     ),
   );
-  /* Sort criterion: Field: Publication Date (field_date) */
+  /* Sort criterion: Field: Source Publication Date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
@@ -269,7 +269,7 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['filters']['field_program_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_program_category_tid']['vocabulary'] = 'program_category';
   $handler->display->display_options['filters']['field_program_category_tid']['error_message'] = FALSE;
-  /* Filter criterion: Field: Publication Date (field_date) */
+  /* Filter criterion: Field: Source Publication Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -689,29 +689,37 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
-    'field_year_of_publication' => 'field_year_of_publication',
-    'field_profile_visibility' => 'field_profile_visibility',
+    'field_instance_label' => 'field_instance_label',
+    'field_display_on_finder' => 'field_display_on_finder',
+    'field_is_application_open' => 'field_is_application_open',
     'edit_node_modal' => 'edit_node_modal',
     'delete_node_modal' => 'delete_node_modal',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
     'title' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_year_of_publication' => array(
-      'sortable' => 1,
+    'field_instance_label' => array(
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_profile_visibility' => array(
-      'sortable' => 1,
+    'field_display_on_finder' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_is_application_open' => array(
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -773,7 +781,7 @@ function gsb_feature_program_instance_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Content: Display on Program and Program Finder */
+  /* Field: Content: Display on program. */
   $handler->display->display_options['fields']['field_display_on_finder']['id'] = 'field_display_on_finder';
   $handler->display->display_options['fields']['field_display_on_finder']['table'] = 'field_data_field_display_on_finder';
   $handler->display->display_options['fields']['field_display_on_finder']['field'] = 'field_display_on_finder';
@@ -787,7 +795,7 @@ function gsb_feature_program_instance_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Content: Is Application Open? */
+  /* Field: Content: The application is open. */
   $handler->display->display_options['fields']['field_is_application_open']['id'] = 'field_is_application_open';
   $handler->display->display_options['fields']['field_is_application_open']['table'] = 'field_data_field_is_application_open';
   $handler->display->display_options['fields']['field_is_application_open']['field'] = 'field_is_application_open';
@@ -814,10 +822,11 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['fields']['delete_node_modal']['label'] = '';
   $handler->display->display_options['fields']['delete_node_modal']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Title */
-  $handler->display->display_options['sorts']['title']['id'] = 'title';
-  $handler->display->display_options['sorts']['title']['table'] = 'node';
-  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Sort criterion: Content: Date -  start date (field_instance_date) */
+  $handler->display->display_options['sorts']['field_instance_date_value']['id'] = 'field_instance_date_value';
+  $handler->display->display_options['sorts']['field_instance_date_value']['table'] = 'field_data_field_instance_date';
+  $handler->display->display_options['sorts']['field_instance_date_value']['field'] = 'field_instance_date_value';
+  $handler->display->display_options['sorts']['field_instance_date_value']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
