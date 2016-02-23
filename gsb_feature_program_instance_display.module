@@ -15,19 +15,20 @@ function gsb_feature_program_instance_display_form_views_content_views_panes_con
 
   if (in_array($form_state['subtype_name'], array('ee_programs-upcoming_deadlines' , 'ee_programs-upcoming_programs'))) {
     $conf = $form_state['conf'];
-    $form['cta_title'] = array(
-      '#title' => t('CTA Title'),
-      '#type' => 'textfield',
-      '#weight' => -97,
-      '#default_value' => !empty($conf['cta_title']) ? $conf['cta_title'] : '',
-    );
-    $form['cta_url'] = array(
-      '#title' => t('CTA URL'),
-      '#type' => 'textfield',
-      '#weight' => -97,
-      '#default_value' => !empty($conf['cta_url']) ? $conf['cta_url'] : '',
-    );
-
+    if ($form_state['subtype_name'] == 'ee_programs-upcoming_deadlines') {
+      $form['cta_url'] = array(
+        '#title' => t('CTA URL'),
+        '#type' => 'textfield',
+        '#weight' => -97,
+        '#default_value' => !empty($conf['cta_url']) ? $conf['cta_url'] : '',
+      );
+      $form['cta_title'] = array(
+        '#title' => t('CTA Title'),
+        '#type' => 'textfield',
+        '#weight' => -97,
+        '#default_value' => !empty($conf['cta_title']) ? $conf['cta_title'] : '',
+      );
+    }
     if ($form_state['subtype_name'] == 'ee_programs-upcoming_programs') {
       $view_modes = $form['view_mode']['#options'];
       foreach($view_modes as $key=>$value) {
@@ -35,6 +36,18 @@ function gsb_feature_program_instance_display_form_views_content_views_panes_con
           unset($form['view_mode']['#options'][$key]);
         }
       }
+      $form['cta_title'] = array(
+        '#title' => t('CTA Title'),
+        '#type' => 'textfield',
+        '#weight' => -97,
+        '#default_value' => !empty($conf['cta_title']) ? $conf['cta_title'] : '',
+      );
+      $form['cta_url'] = array(
+        '#title' => t('CTA URL'),
+        '#type' => 'textfield',
+        '#weight' => -97,
+        '#default_value' => !empty($conf['cta_url']) ? $conf['cta_url'] : '',
+      );
       $form['override_title']['#weight'] = -100;
       $form['items_per_page']['#weight'] = -99 ;
       $form['view_mode']['#weight'] = -98;
@@ -71,6 +84,9 @@ function gsb_feature_program_instance_display_form_views_content_views_panes_con
 }
 
 function gsb_feature_program_instance_display_form_validate($form, &$form_state) {
+  if ($form_state['values']['override_title_text'] == '') {
+    form_set_error('override_title_text', t('Title is required.'));
+  }
   if ($form_state['values']['cta_title'] != '' && $form_state['values']['cta_url'] == '') {
     form_set_error('cta_url', t('CTA Url is required.'));
   }
