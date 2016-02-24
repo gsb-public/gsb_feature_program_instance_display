@@ -15,19 +15,21 @@ function gsb_feature_program_instance_display_form_views_content_views_panes_con
 
   if (in_array($form_state['subtype_name'], array('ee_programs-upcoming_deadlines' , 'ee_programs-upcoming_programs'))) {
     $conf = $form_state['conf'];
+    $form['override_title_text']['#field_prefix'] = '<label for="override-title-textfield">Title <span class="form-required">*</span></label>';
     if ($form_state['subtype_name'] == 'ee_programs-upcoming_deadlines') {
-      $form['cta_url'] = array(
-        '#title' => t('CTA URL'),
-        '#type' => 'textfield',
-        '#weight' => -97,
-        '#default_value' => !empty($conf['cta_url']) ? $conf['cta_url'] : '',
-      );
-      $form['cta_title'] = array(
-        '#title' => t('CTA Title'),
-        '#type' => 'textfield',
-        '#weight' => -97,
-        '#default_value' => !empty($conf['cta_title']) ? $conf['cta_title'] : '',
-      );
+
+    $form['cta_title'] = array(
+      '#title' => t('CTA Title'),
+      '#type' => 'textfield',
+      '#weight' => -97,
+      '#default_value' => !empty($conf['cta_title']) ? $conf['cta_title'] : '',
+    );
+    $form['cta_url'] = array(
+      '#title' => t('CTA URL'),
+      '#type' => 'textfield',
+      '#weight' => -97,
+      '#default_value' => !empty($conf['cta_url']) ? $conf['cta_url'] : '',
+    );
     }
     if ($form_state['subtype_name'] == 'ee_programs-upcoming_programs') {
       $view_modes = $form['view_mode']['#options'];
@@ -36,17 +38,17 @@ function gsb_feature_program_instance_display_form_views_content_views_panes_con
           unset($form['view_mode']['#options'][$key]);
         }
       }
-      $form['cta_title'] = array(
-        '#title' => t('CTA Title'),
-        '#type' => 'textfield',
-        '#weight' => -97,
-        '#default_value' => !empty($conf['cta_title']) ? $conf['cta_title'] : '',
-      );
       $form['cta_url'] = array(
         '#title' => t('CTA URL'),
         '#type' => 'textfield',
         '#weight' => -97,
         '#default_value' => !empty($conf['cta_url']) ? $conf['cta_url'] : '',
+      );
+      $form['cta_title'] = array(
+        '#title' => t('CTA Title'),
+        '#type' => 'textfield',
+        '#weight' => -97,
+        '#default_value' => !empty($conf['cta_title']) ? $conf['cta_title'] : '',
       );
       $form['override_title']['#weight'] = -100;
       $form['items_per_page']['#weight'] = -99 ;
@@ -70,7 +72,6 @@ function gsb_feature_program_instance_display_form_views_content_views_panes_con
         '#weight' => -96,
         '#default_value' => !empty($conf['open_new_window']) ? $conf['open_new_window'] : '',
       );
-
       $form['exposed']['#weight'] = -95;
       $form['comments']['#access'] = FALSE;
       $form['links']['#access'] = FALSE;
@@ -124,9 +125,9 @@ function gsb_feature_program_instance_display_panels_pane_content_alter($content
     if (!empty($pane->configuration['cta_title'])) {
       $url_parts = drupal_parse_url($pane->configuration['cta_url']);
       $url_parts['html'] = TRUE;
-       if ($pane->configuration['open_new_window'] == 1) {
-         $url_parts['attributes'] = array('target' => '_blank');
-       }
+        if ($pane->configuration['open_new_window'] == 1) {
+          $url_parts['attributes'] = array('target' => '_blank');
+        }
       $content->content['#markup'] .= '<div class="list-cta">' . l($pane->configuration['cta_title'], $url_parts['path'], $url_parts) . '</div>';
     }
     if (!empty($pane->configuration['overlay_color'])) {
@@ -134,3 +135,25 @@ function gsb_feature_program_instance_display_panels_pane_content_alter($content
     }
   }
 }
+
+
+
+
+/**
+
+ * Implements hook_module_implements_alter().
+
+ */
+
+function gsb_feature_program_instance_display_module_implements_alter(&$implementations, $hook) {
+
+  if (in_array($hook, array('form_alter', 'menu_alter'))) {
+    // Allow gsb_feature_program_instance_display_form_views_content_views_panes_content_type_edit_form_alter to run last.
+    if (isset($implementations['gsb_feature_program_instance_display'])) {
+      $group = $implementations['gsb_feature_program_instance_display'];
+      unset($implementations['gsb_feature_program_instance_display']);
+      $implementations['gsb_feature_program_instance_display'] = $group;
+    }
+  }
+}
+
