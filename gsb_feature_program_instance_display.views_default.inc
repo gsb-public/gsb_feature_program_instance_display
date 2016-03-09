@@ -491,7 +491,7 @@ function gsb_feature_program_instance_display_views_default_views() {
   );
   $handler->display->display_options['filters']['field_key_program_topics_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_key_program_topics_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['vocabulary'] = 'program_topic';
+  $handler->display->display_options['filters']['field_key_program_topics_tid']['vocabulary'] = 'key_program_topic';
   $handler->display->display_options['filters']['field_key_program_topics_tid']['error_message'] = FALSE;
   /* Filter criterion: Content: Program Category (field_program_category) */
   $handler->display->display_options['filters']['field_program_category_tid']['id'] = 'field_program_category_tid';
@@ -769,6 +769,13 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Instance Label */
   $handler->display->display_options['fields']['field_instance_label']['id'] = 'field_instance_label';
   $handler->display->display_options['fields']['field_instance_label']['table'] = 'field_data_field_instance_label';
@@ -785,7 +792,9 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['fields']['field_display_on_finder']['id'] = 'field_display_on_finder';
   $handler->display->display_options['fields']['field_display_on_finder']['table'] = 'field_data_field_display_on_finder';
   $handler->display->display_options['fields']['field_display_on_finder']['field'] = 'field_display_on_finder';
-  $handler->display->display_options['fields']['field_display_on_finder']['label'] = 'Display on Program Overview';
+  $handler->display->display_options['fields']['field_display_on_finder']['label'] = 'DISPLAY ON PROGRAM OVERVIEW';
+  $handler->display->display_options['fields']['field_display_on_finder']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_display_on_finder']['alter']['text'] = '<span class="display-on-finder-data hide_this" data-nid="[nid]" data-display-finder="[field_display_on_finder-value]"></span>';
   $handler->display->display_options['fields']['field_display_on_finder']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_display_on_finder']['type'] = 'list_key';
   $handler->display->display_options['fields']['field_display_on_finder']['settings'] = array(
@@ -799,7 +808,9 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['fields']['field_is_application_open']['id'] = 'field_is_application_open';
   $handler->display->display_options['fields']['field_is_application_open']['table'] = 'field_data_field_is_application_open';
   $handler->display->display_options['fields']['field_is_application_open']['field'] = 'field_is_application_open';
-  $handler->display->display_options['fields']['field_is_application_open']['label'] = 'Application Open';
+  $handler->display->display_options['fields']['field_is_application_open']['label'] = 'APPLICATION OPEN';
+  $handler->display->display_options['fields']['field_is_application_open']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_is_application_open']['alter']['text'] = '<span class="application-open-data hide_this" data-nid="[nid]" data-application-open="[field_is_application_open-value]"></span>';
   $handler->display->display_options['fields']['field_is_application_open']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_is_application_open']['type'] = 'list_key';
   $handler->display->display_options['fields']['field_is_application_open']['settings'] = array(
