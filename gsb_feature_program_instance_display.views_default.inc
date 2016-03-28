@@ -792,7 +792,7 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['fields']['field_display_on_finder']['id'] = 'field_display_on_finder';
   $handler->display->display_options['fields']['field_display_on_finder']['table'] = 'field_data_field_display_on_finder';
   $handler->display->display_options['fields']['field_display_on_finder']['field'] = 'field_display_on_finder';
-  $handler->display->display_options['fields']['field_display_on_finder']['label'] = 'DISPLAY ON PROGRAM OVERVIEW';
+  $handler->display->display_options['fields']['field_display_on_finder']['label'] = 'Display';
   $handler->display->display_options['fields']['field_display_on_finder']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_display_on_finder']['alter']['text'] = '<span class="display-on-finder-data hide_this" data-nid="[nid]" data-display-finder="[field_display_on_finder-value]"></span>';
   $handler->display->display_options['fields']['field_display_on_finder']['element_label_colon'] = FALSE;
