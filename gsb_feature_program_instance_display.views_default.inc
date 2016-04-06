@@ -122,7 +122,7 @@ function gsb_feature_program_instance_display_views_default_views() {
     'program_instance' => 'program_instance',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: All Topics (field_program_topics) */
+  /* Filter criterion: Field: All Topics (field_program_topics) */
   $handler->display->display_options['filters']['field_program_topics_tid']['id'] = 'field_program_topics_tid';
   $handler->display->display_options['filters']['field_program_topics_tid']['table'] = 'field_data_field_program_topics';
   $handler->display->display_options['filters']['field_program_topics_tid']['field'] = 'field_program_topics_tid';
@@ -345,28 +345,29 @@ function gsb_feature_program_instance_display_views_default_views() {
     'program_instance' => 'program_instance',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: All Topics (field_program_topics) */
-  $handler->display->display_options['filters']['field_program_topics_tid']['id'] = 'field_program_topics_tid';
-  $handler->display->display_options['filters']['field_program_topics_tid']['table'] = 'field_data_field_program_topics';
-  $handler->display->display_options['filters']['field_program_topics_tid']['field'] = 'field_program_topics_tid';
-  $handler->display->display_options['filters']['field_program_topics_tid']['relationship'] = 'field_program_target_id';
-  $handler->display->display_options['filters']['field_program_topics_tid']['value'] = '';
-  $handler->display->display_options['filters']['field_program_topics_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_program_topics_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['operator_id'] = 'field_program_topics_tid_op';
-  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['label'] = 'Keyword(s)';
-  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['operator'] = 'field_program_topics_tid_op';
-  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['identifier'] = 'field_program_topics_tid';
-  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['remember_roles'] = array(
+  /* Filter criterion: Field: Keywords (field_tag) */
+  $handler->display->display_options['filters']['field_tag_tid']['id'] = 'field_tag_tid';
+  $handler->display->display_options['filters']['field_tag_tid']['table'] = 'field_data_field_tag';
+  $handler->display->display_options['filters']['field_tag_tid']['field'] = 'field_tag_tid';
+  $handler->display->display_options['filters']['field_tag_tid']['relationship'] = 'field_program_target_id';
+  $handler->display->display_options['filters']['field_tag_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_tag_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_tag_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['operator_id'] = 'field_tag_tid_op';
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['label'] = 'Keyword(s)';
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['operator'] = 'field_tag_tid_op';
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['identifier'] = 'field_tag_tid';
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['field_tag_tid']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     11 => 0,
     151 => 0,
     16 => 0,
+    256 => 0,
     21 => 0,
-    241 => 0,
     71 => 0,
+    241 => 0,
     61 => 0,
     171 => 0,
     56 => 0,
@@ -390,7 +391,6 @@ function gsb_feature_program_instance_display_views_default_views() {
     81 => 0,
     86 => 0,
     96 => 0,
-    101 => 0,
     106 => 0,
     116 => 0,
     121 => 0,
@@ -407,7 +407,6 @@ function gsb_feature_program_instance_display_views_default_views() {
     206 => 0,
     211 => 0,
     251 => 0,
-    256 => 0,
     261 => 0,
     266 => 0,
     271 => 0,
@@ -415,10 +414,13 @@ function gsb_feature_program_instance_display_views_default_views() {
     281 => 0,
     291 => 0,
     296 => 0,
+    301 => 0,
+    101 => 0,
+    326 => 0,
   );
-  $handler->display->display_options['filters']['field_program_topics_tid']['reduce_duplicates'] = TRUE;
-  $handler->display->display_options['filters']['field_program_topics_tid']['vocabulary'] = 'program_topic';
-  $handler->display->display_options['filters']['field_program_topics_tid']['error_message'] = FALSE;
+  $handler->display->display_options['filters']['field_tag_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_tag_tid']['vocabulary'] = 'tag';
+  $handler->display->display_options['filters']['field_tag_tid']['error_message'] = FALSE;
   /* Filter criterion: Content: Key Topics (field_key_program_topics) */
   $handler->display->display_options['filters']['field_key_program_topics_tid']['id'] = 'field_key_program_topics_tid';
   $handler->display->display_options['filters']['field_key_program_topics_tid']['table'] = 'field_data_field_key_program_topics';
