@@ -138,7 +138,6 @@ function gsb_feature_program_instance_display_panels_pane_content_alter($content
 
 
 
-
 /**
 
  * Implements hook_module_implements_alter().
