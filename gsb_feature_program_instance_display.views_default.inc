@@ -74,7 +74,7 @@ function gsb_feature_program_instance_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Field: Publication Date */
+  /* Field: Field: Source Publication Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -97,7 +97,7 @@ function gsb_feature_program_instance_display_views_default_views() {
       ),
     ),
   );
-  /* Sort criterion: Field: Publication Date (field_date) */
+  /* Sort criterion: Field: Source Publication Date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
@@ -269,7 +269,7 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['filters']['field_program_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_program_category_tid']['vocabulary'] = 'program_category';
   $handler->display->display_options['filters']['field_program_category_tid']['error_message'] = FALSE;
-  /* Filter criterion: Field: Publication Date (field_date) */
+  /* Filter criterion: Field: Source Publication Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -469,7 +469,7 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['filters']['field_program_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_program_category_tid']['vocabulary'] = 'program_category';
   $handler->display->display_options['filters']['field_program_category_tid']['error_message'] = FALSE;
-  /* Filter criterion: Field: Publication Date (field_date) */
+  /* Filter criterion: Field: Source Publication Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -617,7 +617,7 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['filters']['field_tag_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_tag_tid']['vocabulary'] = 'tag';
   $handler->display->display_options['filters']['field_tag_tid']['error_message'] = FALSE;
-  /* Filter criterion: Field: Program Key Topic (field_key_program_topics) */
+  /* Filter criterion: Field: Key Topics (field_key_program_topics) */
   $handler->display->display_options['filters']['field_key_program_topics_tid']['id'] = 'field_key_program_topics_tid';
   $handler->display->display_options['filters']['field_key_program_topics_tid']['table'] = 'field_data_field_key_program_topics';
   $handler->display->display_options['filters']['field_key_program_topics_tid']['field'] = 'field_key_program_topics_tid';
@@ -1044,6 +1044,12 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['fields']['delete_node_modal']['field'] = 'delete_node_modal';
   $handler->display->display_options['fields']['delete_node_modal']['label'] = '';
   $handler->display->display_options['fields']['delete_node_modal']['element_label_colon'] = FALSE;
+  /* Field: Content: Clone link (in modal) */
+  $handler->display->display_options['fields']['clone_node_modal']['id'] = 'clone_node_modal';
+  $handler->display->display_options['fields']['clone_node_modal']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['clone_node_modal']['field'] = 'clone_node_modal';
+  $handler->display->display_options['fields']['clone_node_modal']['label'] = '';
+  $handler->display->display_options['fields']['clone_node_modal']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Date -  start date (field_instance_date) */
   $handler->display->display_options['sorts']['field_instance_date_value']['id'] = 'field_instance_date_value';
