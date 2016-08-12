@@ -511,10 +511,18 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['row_options']['view_mode'] = 'compact';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Instance Date Text Select (field_instance_date_text_select) */
+  $handler->display->display_options['sorts']['field_instance_date_text_select_value']['id'] = 'field_instance_date_text_select_value';
+  $handler->display->display_options['sorts']['field_instance_date_text_select_value']['table'] = 'field_data_field_instance_date_text_select';
+  $handler->display->display_options['sorts']['field_instance_date_text_select_value']['field'] = 'field_instance_date_text_select_value';
+  /* Sort criterion: Content: Text (field_instance_text) */
+  $handler->display->display_options['sorts']['field_instance_text_value']['id'] = 'field_instance_text_value';
+  $handler->display->display_options['sorts']['field_instance_text_value']['table'] = 'field_data_field_instance_text';
+  $handler->display->display_options['sorts']['field_instance_text_value']['field'] = 'field_instance_text_value';
   /* Sort criterion: Content: Date -  start date (field_instance_date) */
-  $handler->display->display_options['sorts']['field_instance_date_value']['id'] = 'field_instance_date_value';
-  $handler->display->display_options['sorts']['field_instance_date_value']['table'] = 'field_data_field_instance_date';
-  $handler->display->display_options['sorts']['field_instance_date_value']['field'] = 'field_instance_date_value';
+  $handler->display->display_options['sorts']['field_instance_date_value_1']['id'] = 'field_instance_date_value_1';
+  $handler->display->display_options['sorts']['field_instance_date_value_1']['table'] = 'field_data_field_instance_date';
+  $handler->display->display_options['sorts']['field_instance_date_value_1']['field'] = 'field_instance_date_value';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
