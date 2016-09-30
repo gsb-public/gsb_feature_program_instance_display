@@ -121,7 +121,7 @@ function gsb_feature_program_instance_display_panels_pane_content_alter($content
     if (!empty($pane->configuration['program_superhead'])) {
       $content->title = '<div class="super-head">' . $pane->configuration['program_superhead']. '</div>' . $content->title;
     }
-    $content->title['#prefix'] = '<div class="teal">';
+    //$content->title['#prefix'] = '<div class="teal">';
     if (!empty($pane->configuration['cta_title'])) {
       $url_parts = drupal_parse_url($pane->configuration['cta_url']);
       $url_parts['html'] = TRUE;

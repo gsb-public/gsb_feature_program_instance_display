@@ -48,6 +48,11 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['relationships']['field_application_deadlines_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_application_deadlines_node']['field'] = 'field_application_deadlines_node';
   $handler->display->display_options['relationships']['field_application_deadlines_node']['relationship'] = 'field_application_deadlines_value';
+  /* Relationship: Field collection item: Location Category (field_program_location_category) */
+  $handler->display->display_options['relationships']['field_program_location_category_tid']['id'] = 'field_program_location_category_tid';
+  $handler->display->display_options['relationships']['field_program_location_category_tid']['table'] = 'field_data_field_program_location_category';
+  $handler->display->display_options['relationships']['field_program_location_category_tid']['field'] = 'field_program_location_category_tid';
+  $handler->display->display_options['relationships']['field_program_location_category_tid']['relationship'] = 'field_application_deadlines_value';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -74,7 +79,7 @@ function gsb_feature_program_instance_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Field: Source Publication Date */
+  /* Field: Field: Publication Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -97,7 +102,7 @@ function gsb_feature_program_instance_display_views_default_views() {
       ),
     ),
   );
-  /* Sort criterion: Field: Source Publication Date (field_date) */
+  /* Sort criterion: Field: Publication Date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
@@ -269,7 +274,7 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['filters']['field_program_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_program_category_tid']['vocabulary'] = 'program_category';
   $handler->display->display_options['filters']['field_program_category_tid']['error_message'] = FALSE;
-  /* Filter criterion: Field: Source Publication Date (field_date) */
+  /* Filter criterion: Field: Publication Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -469,7 +474,7 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['filters']['field_program_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_program_category_tid']['vocabulary'] = 'program_category';
   $handler->display->display_options['filters']['field_program_category_tid']['error_message'] = FALSE;
-  /* Filter criterion: Field: Source Publication Date (field_date) */
+  /* Filter criterion: Field: Publication Date (field_date) */
   $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
@@ -498,7 +503,6 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['allow']['path_override'] = 0;
   $handler->display->display_options['allow']['title_override'] = 'title_override';
   $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
-  $handler->display->display_options['allow']['exposed_form_configure'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 0;
 
   /* Display: Upcoming Programs */
@@ -510,6 +514,26 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'compact';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_program_target_id']['id'] = 'field_program_target_id';
+  $handler->display->display_options['relationships']['field_program_target_id']['table'] = 'field_data_field_program';
+  $handler->display->display_options['relationships']['field_program_target_id']['field'] = 'field_program_target_id';
+  /* Relationship: Content: Deadlines (field_application_deadlines) */
+  $handler->display->display_options['relationships']['field_application_deadlines_value']['id'] = 'field_application_deadlines_value';
+  $handler->display->display_options['relationships']['field_application_deadlines_value']['table'] = 'field_data_field_application_deadlines';
+  $handler->display->display_options['relationships']['field_application_deadlines_value']['field'] = 'field_application_deadlines_value';
+  $handler->display->display_options['relationships']['field_application_deadlines_value']['delta'] = '-1';
+  /* Relationship: Field collection item: Entity with the Deadlines (field_application_deadlines) */
+  $handler->display->display_options['relationships']['field_application_deadlines_node']['id'] = 'field_application_deadlines_node';
+  $handler->display->display_options['relationships']['field_application_deadlines_node']['table'] = 'field_collection_item';
+  $handler->display->display_options['relationships']['field_application_deadlines_node']['field'] = 'field_application_deadlines_node';
+  $handler->display->display_options['relationships']['field_application_deadlines_node']['relationship'] = 'field_application_deadlines_value';
+  /* Relationship: Content: Program Format &amp; Location (field_program_location) */
+  $handler->display->display_options['relationships']['field_program_location_value']['id'] = 'field_program_location_value';
+  $handler->display->display_options['relationships']['field_program_location_value']['table'] = 'field_data_field_program_location';
+  $handler->display->display_options['relationships']['field_program_location_value']['field'] = 'field_program_location_value';
+  $handler->display->display_options['relationships']['field_program_location_value']['delta'] = '-1';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Instance Date Text Select (field_instance_date_text_select) */
   $handler->display->display_options['sorts']['field_instance_date_text_select_value']['id'] = 'field_instance_date_text_select_value';
@@ -625,27 +649,28 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['filters']['field_tag_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_tag_tid']['vocabulary'] = 'tag';
   $handler->display->display_options['filters']['field_tag_tid']['error_message'] = FALSE;
-  /* Filter criterion: Field: Key Topics (field_key_program_topics) */
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['id'] = 'field_key_program_topics_tid';
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['table'] = 'field_data_field_key_program_topics';
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['field'] = 'field_key_program_topics_tid';
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['relationship'] = 'field_program_target_id';
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['expose']['operator_id'] = 'field_key_program_topics_tid_op';
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['expose']['label'] = 'Program Topic';
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['expose']['operator'] = 'field_key_program_topics_tid_op';
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['expose']['identifier'] = 'field_key_program_topics_tid';
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['expose']['remember_roles'] = array(
+  /* Filter criterion: Content: All Topics (field_program_topics) */
+  $handler->display->display_options['filters']['field_program_topics_tid']['id'] = 'field_program_topics_tid';
+  $handler->display->display_options['filters']['field_program_topics_tid']['table'] = 'field_data_field_program_topics';
+  $handler->display->display_options['filters']['field_program_topics_tid']['field'] = 'field_program_topics_tid';
+  $handler->display->display_options['filters']['field_program_topics_tid']['relationship'] = 'field_program_target_id';
+  $handler->display->display_options['filters']['field_program_topics_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_program_topics_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['operator_id'] = 'field_program_topics_tid_op';
+  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['label'] = 'Program Topic';
+  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['operator'] = 'field_program_topics_tid_op';
+  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['identifier'] = 'field_program_topics_tid';
+  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['field_program_topics_tid']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     11 => 0,
     151 => 0,
     16 => 0,
+    256 => 0,
     21 => 0,
-    241 => 0,
     71 => 0,
+    241 => 0,
     61 => 0,
     171 => 0,
     56 => 0,
@@ -669,7 +694,6 @@ function gsb_feature_program_instance_display_views_default_views() {
     81 => 0,
     86 => 0,
     96 => 0,
-    101 => 0,
     106 => 0,
     116 => 0,
     121 => 0,
@@ -686,7 +710,6 @@ function gsb_feature_program_instance_display_views_default_views() {
     206 => 0,
     211 => 0,
     251 => 0,
-    256 => 0,
     261 => 0,
     266 => 0,
     271 => 0,
@@ -694,11 +717,14 @@ function gsb_feature_program_instance_display_views_default_views() {
     281 => 0,
     291 => 0,
     296 => 0,
+    301 => 0,
+    101 => 0,
+    326 => 0,
   );
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['reduce_duplicates'] = TRUE;
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['vocabulary'] = 'key_program_topic';
-  $handler->display->display_options['filters']['field_key_program_topics_tid']['error_message'] = FALSE;
+  $handler->display->display_options['filters']['field_program_topics_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_program_topics_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_program_topics_tid']['vocabulary'] = 'program_topic';
+  $handler->display->display_options['filters']['field_program_topics_tid']['error_message'] = FALSE;
   /* Filter criterion: Content: Program Category (field_program_category) */
   $handler->display->display_options['filters']['field_program_category_tid']['id'] = 'field_program_category_tid';
   $handler->display->display_options['filters']['field_program_category_tid']['table'] = 'field_data_field_program_category';
@@ -794,6 +820,81 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['filters']['field_instance_text_value']['field'] = 'field_instance_text_value';
   $handler->display->display_options['filters']['field_instance_text_value']['operator'] = 'not empty';
   $handler->display->display_options['filters']['field_instance_text_value']['group'] = 2;
+  /* Filter criterion: Field collection item: Location Category (field_program_location_category) */
+  $handler->display->display_options['filters']['field_program_location_category_tid']['id'] = 'field_program_location_category_tid';
+  $handler->display->display_options['filters']['field_program_location_category_tid']['table'] = 'field_data_field_program_location_category';
+  $handler->display->display_options['filters']['field_program_location_category_tid']['field'] = 'field_program_location_category_tid';
+  $handler->display->display_options['filters']['field_program_location_category_tid']['relationship'] = 'field_program_location_value';
+  $handler->display->display_options['filters']['field_program_location_category_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_program_location_category_tid']['expose']['operator_id'] = 'field_program_location_category_tid_op';
+  $handler->display->display_options['filters']['field_program_location_category_tid']['expose']['label'] = 'Location Category (field_program_location_category)';
+  $handler->display->display_options['filters']['field_program_location_category_tid']['expose']['operator'] = 'field_program_location_category_tid_op';
+  $handler->display->display_options['filters']['field_program_location_category_tid']['expose']['identifier'] = 'field_program_location_category_tid';
+  $handler->display->display_options['filters']['field_program_location_category_tid']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['field_program_location_category_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    11 => 0,
+    151 => 0,
+    16 => 0,
+    256 => 0,
+    21 => 0,
+    71 => 0,
+    241 => 0,
+    61 => 0,
+    171 => 0,
+    56 => 0,
+    66 => 0,
+    201 => 0,
+    221 => 0,
+    216 => 0,
+    226 => 0,
+    231 => 0,
+    246 => 0,
+    236 => 0,
+    31 => 0,
+    36 => 0,
+    41 => 0,
+    91 => 0,
+    146 => 0,
+    136 => 0,
+    26 => 0,
+    46 => 0,
+    51 => 0,
+    81 => 0,
+    86 => 0,
+    96 => 0,
+    106 => 0,
+    116 => 0,
+    121 => 0,
+    126 => 0,
+    131 => 0,
+    141 => 0,
+    156 => 0,
+    161 => 0,
+    166 => 0,
+    176 => 0,
+    181 => 0,
+    186 => 0,
+    191 => 0,
+    206 => 0,
+    211 => 0,
+    251 => 0,
+    261 => 0,
+    266 => 0,
+    271 => 0,
+    276 => 0,
+    281 => 0,
+    291 => 0,
+    296 => 0,
+    301 => 0,
+    101 => 0,
+    326 => 0,
+  );
+  $handler->display->display_options['filters']['field_program_location_category_tid']['reduce_duplicates'] = TRUE;
+  $handler->display->display_options['filters']['field_program_location_category_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_program_location_category_tid']['vocabulary'] = 'program_location';
+  $handler->display->display_options['filters']['field_program_location_category_tid']['error_message'] = FALSE;
   $handler->display->display_options['pane_title'] = 'Programs: Multiple Criteria';
   $handler->display->display_options['pane_category']['name'] = 'Customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
@@ -807,7 +908,6 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['allow']['path_override'] = 0;
   $handler->display->display_options['allow']['title_override'] = 'title_override';
   $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
-  $handler->display->display_options['allow']['exposed_form_configure'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 0;
   $handler->display->display_options['exposed_form_overrides'] = array(
     'filters' => array(
