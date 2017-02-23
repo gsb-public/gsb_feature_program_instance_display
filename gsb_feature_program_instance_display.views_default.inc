@@ -310,6 +310,22 @@ function gsb_feature_program_instance_display_views_default_views() {
     'field_deadline_text' => 'field_deadline_text',
   );
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Application State (field_application_state) */
+  $handler->display->display_options['sorts']['field_application_state_value']['id'] = 'field_application_state_value';
+  $handler->display->display_options['sorts']['field_application_state_value']['table'] = 'field_data_field_application_state';
+  $handler->display->display_options['sorts']['field_application_state_value']['field'] = 'field_application_state_value';
+  $handler->display->display_options['sorts']['field_application_state_value']['relationship'] = 'field_application_deadlines_node';
+  /* Sort criterion: Field: Publication Date (field_date) */
+  $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['sorts']['field_date_value']['relationship'] = 'field_application_deadlines_value';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['sorts']['title']['relationship'] = 'field_program_target_id';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -474,14 +490,6 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['filters']['field_program_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_program_category_tid']['vocabulary'] = 'program_category';
   $handler->display->display_options['filters']['field_program_category_tid']['error_message'] = FALSE;
-  /* Filter criterion: Field: Publication Date (field_date) */
-  $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
-  $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
-  $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
-  $handler->display->display_options['filters']['field_date_value']['relationship'] = 'field_application_deadlines_value';
-  $handler->display->display_options['filters']['field_date_value']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_date_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_date_value']['default_date'] = 'today';
   /* Filter criterion: Content: Display (field_display_on_finder_select) */
   $handler->display->display_options['filters']['field_display_on_finder_select_value']['id'] = 'field_display_on_finder_select_value';
   $handler->display->display_options['filters']['field_display_on_finder_select_value']['table'] = 'field_data_field_display_on_finder_select';
@@ -490,6 +498,24 @@ function gsb_feature_program_instance_display_views_default_views() {
     'visible' => 'visible',
   );
   $handler->display->display_options['filters']['field_display_on_finder_select_value']['group'] = 1;
+  /* Filter criterion: Content: Application State (field_application_state) */
+  $handler->display->display_options['filters']['field_application_state_value']['id'] = 'field_application_state_value';
+  $handler->display->display_options['filters']['field_application_state_value']['table'] = 'field_data_field_application_state';
+  $handler->display->display_options['filters']['field_application_state_value']['field'] = 'field_application_state_value';
+  $handler->display->display_options['filters']['field_application_state_value']['relationship'] = 'field_application_deadlines_node';
+  $handler->display->display_options['filters']['field_application_state_value']['value'] = array(
+    2 => '2',
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_application_state_value']['group'] = 1;
+  /* Filter criterion: Field: Publication Date (field_date) */
+  $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['relationship'] = 'field_application_deadlines_value';
+  $handler->display->display_options['filters']['field_date_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_date_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_date_value']['default_date'] = 'today';
   $handler->display->display_options['pane_title'] = 'Program Application Deadlines: Multiple Criteria';
   $handler->display->display_options['pane_category']['name'] = 'Customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
@@ -535,6 +561,15 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['relationships']['field_program_location_value']['field'] = 'field_program_location_value';
   $handler->display->display_options['relationships']['field_program_location_value']['delta'] = '-1';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Application State (field_application_state) */
+  $handler->display->display_options['sorts']['field_application_state_value']['id'] = 'field_application_state_value';
+  $handler->display->display_options['sorts']['field_application_state_value']['table'] = 'field_data_field_application_state';
+  $handler->display->display_options['sorts']['field_application_state_value']['field'] = 'field_application_state_value';
+  $handler->display->display_options['sorts']['field_application_state_value']['relationship'] = 'field_application_deadlines_node';
+  /* Sort criterion: Content: Date -  start date (field_instance_date) */
+  $handler->display->display_options['sorts']['field_instance_date_value_1']['id'] = 'field_instance_date_value_1';
+  $handler->display->display_options['sorts']['field_instance_date_value_1']['table'] = 'field_data_field_instance_date';
+  $handler->display->display_options['sorts']['field_instance_date_value_1']['field'] = 'field_instance_date_value';
   /* Sort criterion: Content: Instance Date Text Select (field_instance_date_text_select) */
   $handler->display->display_options['sorts']['field_instance_date_text_select_value']['id'] = 'field_instance_date_text_select_value';
   $handler->display->display_options['sorts']['field_instance_date_text_select_value']['table'] = 'field_data_field_instance_date_text_select';
@@ -543,10 +578,6 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['sorts']['field_instance_text_value']['id'] = 'field_instance_text_value';
   $handler->display->display_options['sorts']['field_instance_text_value']['table'] = 'field_data_field_instance_text';
   $handler->display->display_options['sorts']['field_instance_text_value']['field'] = 'field_instance_text_value';
-  /* Sort criterion: Content: Date -  start date (field_instance_date) */
-  $handler->display->display_options['sorts']['field_instance_date_value_1']['id'] = 'field_instance_date_value_1';
-  $handler->display->display_options['sorts']['field_instance_date_value_1']['table'] = 'field_data_field_instance_date';
-  $handler->display->display_options['sorts']['field_instance_date_value_1']['field'] = 'field_instance_date_value';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -807,24 +838,22 @@ function gsb_feature_program_instance_display_views_default_views() {
     'visible' => 'visible',
   );
   $handler->display->display_options['filters']['field_display_on_finder_select_value']['group'] = 1;
-  /* Filter criterion: Content: Date -  start date (field_instance_date) */
-  $handler->display->display_options['filters']['field_instance_date_value']['id'] = 'field_instance_date_value';
-  $handler->display->display_options['filters']['field_instance_date_value']['table'] = 'field_data_field_instance_date';
-  $handler->display->display_options['filters']['field_instance_date_value']['field'] = 'field_instance_date_value';
-  $handler->display->display_options['filters']['field_instance_date_value']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_instance_date_value']['group'] = 2;
-  $handler->display->display_options['filters']['field_instance_date_value']['default_date'] = 'today';
-  /* Filter criterion: Content: Text (field_instance_text) */
-  $handler->display->display_options['filters']['field_instance_text_value']['id'] = 'field_instance_text_value';
-  $handler->display->display_options['filters']['field_instance_text_value']['table'] = 'field_data_field_instance_text';
-  $handler->display->display_options['filters']['field_instance_text_value']['field'] = 'field_instance_text_value';
-  $handler->display->display_options['filters']['field_instance_text_value']['operator'] = 'not empty';
-  $handler->display->display_options['filters']['field_instance_text_value']['group'] = 2;
+  /* Filter criterion: Content: Application State (field_application_state) */
+  $handler->display->display_options['filters']['field_application_state_value']['id'] = 'field_application_state_value';
+  $handler->display->display_options['filters']['field_application_state_value']['table'] = 'field_data_field_application_state';
+  $handler->display->display_options['filters']['field_application_state_value']['field'] = 'field_application_state_value';
+  $handler->display->display_options['filters']['field_application_state_value']['relationship'] = 'field_application_deadlines_node';
+  $handler->display->display_options['filters']['field_application_state_value']['value'] = array(
+    2 => '2',
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_application_state_value']['group'] = 1;
   /* Filter criterion: Field collection item: Location Category (field_program_location_category) */
   $handler->display->display_options['filters']['field_program_location_category_tid']['id'] = 'field_program_location_category_tid';
   $handler->display->display_options['filters']['field_program_location_category_tid']['table'] = 'field_data_field_program_location_category';
   $handler->display->display_options['filters']['field_program_location_category_tid']['field'] = 'field_program_location_category_tid';
   $handler->display->display_options['filters']['field_program_location_category_tid']['relationship'] = 'field_program_location_value';
+  $handler->display->display_options['filters']['field_program_location_category_tid']['group'] = 1;
   $handler->display->display_options['filters']['field_program_location_category_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_program_location_category_tid']['expose']['operator_id'] = 'field_program_location_category_tid_op';
   $handler->display->display_options['filters']['field_program_location_category_tid']['expose']['label'] = 'Location Category (field_program_location_category)';
@@ -895,6 +924,19 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['filters']['field_program_location_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_program_location_category_tid']['vocabulary'] = 'program_location';
   $handler->display->display_options['filters']['field_program_location_category_tid']['error_message'] = FALSE;
+  /* Filter criterion: Content: Date -  start date (field_instance_date) */
+  $handler->display->display_options['filters']['field_instance_date_value']['id'] = 'field_instance_date_value';
+  $handler->display->display_options['filters']['field_instance_date_value']['table'] = 'field_data_field_instance_date';
+  $handler->display->display_options['filters']['field_instance_date_value']['field'] = 'field_instance_date_value';
+  $handler->display->display_options['filters']['field_instance_date_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_instance_date_value']['group'] = 2;
+  $handler->display->display_options['filters']['field_instance_date_value']['default_date'] = 'today';
+  /* Filter criterion: Content: Text (field_instance_text) */
+  $handler->display->display_options['filters']['field_instance_text_value']['id'] = 'field_instance_text_value';
+  $handler->display->display_options['filters']['field_instance_text_value']['table'] = 'field_data_field_instance_text';
+  $handler->display->display_options['filters']['field_instance_text_value']['field'] = 'field_instance_text_value';
+  $handler->display->display_options['filters']['field_instance_text_value']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['field_instance_text_value']['group'] = 2;
   $handler->display->display_options['pane_title'] = 'Programs: Multiple Criteria';
   $handler->display->display_options['pane_category']['name'] = 'Customizable Content Lists';
   $handler->display->display_options['pane_category']['weight'] = '0';
