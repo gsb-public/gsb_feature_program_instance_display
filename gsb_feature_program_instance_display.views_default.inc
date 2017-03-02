@@ -311,11 +311,6 @@ function gsb_feature_program_instance_display_views_default_views() {
   );
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Application State (field_application_state) */
-  $handler->display->display_options['sorts']['field_application_state_value']['id'] = 'field_application_state_value';
-  $handler->display->display_options['sorts']['field_application_state_value']['table'] = 'field_data_field_application_state';
-  $handler->display->display_options['sorts']['field_application_state_value']['field'] = 'field_application_state_value';
-  $handler->display->display_options['sorts']['field_application_state_value']['relationship'] = 'field_application_deadlines_node';
   /* Sort criterion: Field: Publication Date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
@@ -561,11 +556,6 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['relationships']['field_program_location_value']['field'] = 'field_program_location_value';
   $handler->display->display_options['relationships']['field_program_location_value']['delta'] = '-1';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Application State (field_application_state) */
-  $handler->display->display_options['sorts']['field_application_state_value']['id'] = 'field_application_state_value';
-  $handler->display->display_options['sorts']['field_application_state_value']['table'] = 'field_data_field_application_state';
-  $handler->display->display_options['sorts']['field_application_state_value']['field'] = 'field_application_state_value';
-  $handler->display->display_options['sorts']['field_application_state_value']['relationship'] = 'field_application_deadlines_node';
   /* Sort criterion: Content: Date -  start date (field_instance_date) */
   $handler->display->display_options['sorts']['field_instance_date_value_1']['id'] = 'field_instance_date_value_1';
   $handler->display->display_options['sorts']['field_instance_date_value_1']['table'] = 'field_data_field_instance_date';
