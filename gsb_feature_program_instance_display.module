@@ -116,6 +116,7 @@ function gsb_feature_program_instance_display_panels_pane_content_alter($content
     }
   }
   if ($content && $content->subtype == 'ee_programs-upcoming_programs') {
+    $content->content['#markup'] = htmlspecialchars_decode($content->content['#markup']);
     $content->title_heading = 'div';
     $content->title = '<h2>' . $content->title . '</h2>';
     if (!empty($pane->configuration['program_superhead'])) {
