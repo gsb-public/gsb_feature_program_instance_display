@@ -1156,22 +1156,6 @@ function gsb_feature_program_instance_display_views_default_views() {
       ),
     ),
   );
-  /* Field: Content: The application is open. */
-  $handler->display->display_options['fields']['field_is_application_open']['id'] = 'field_is_application_open';
-  $handler->display->display_options['fields']['field_is_application_open']['table'] = 'field_data_field_is_application_open';
-  $handler->display->display_options['fields']['field_is_application_open']['field'] = 'field_is_application_open';
-  $handler->display->display_options['fields']['field_is_application_open']['label'] = 'APPLICATION OPEN';
-  $handler->display->display_options['fields']['field_is_application_open']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_is_application_open']['alter']['text'] = '<span class="application-open-data hide_this" data-nid="[nid]" data-application-open="[field_is_application_open-value]"></span>';
-  $handler->display->display_options['fields']['field_is_application_open']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_is_application_open']['type'] = 'list_key';
-  $handler->display->display_options['fields']['field_is_application_open']['settings'] = array(
-    'conditions' => array(
-      0 => array(
-        'condition' => '',
-      ),
-    ),
-  );
   /* Field: Content: Edit link (in modal) */
   $handler->display->display_options['fields']['edit_node_modal']['id'] = 'edit_node_modal';
   $handler->display->display_options['fields']['edit_node_modal']['table'] = 'views_entity_node';
