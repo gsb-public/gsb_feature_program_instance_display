@@ -820,6 +820,17 @@ function gsb_feature_program_instance_display_views_default_views() {
   $handler->display->display_options['filters']['field_program_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_program_category_tid']['vocabulary'] = 'program_category';
   $handler->display->display_options['filters']['field_program_category_tid']['error_message'] = FALSE;
+  /* Filter criterion: Content: Application State (field_application_state) */
+  $handler->display->display_options['filters']['field_application_state_value']['id'] = 'field_application_state_value';
+  $handler->display->display_options['filters']['field_application_state_value']['table'] = 'field_data_field_application_state';
+  $handler->display->display_options['filters']['field_application_state_value']['field'] = 'field_application_state_value';
+  $handler->display->display_options['filters']['field_application_state_value']['relationship'] = 'field_application_deadlines_node';
+  $handler->display->display_options['filters']['field_application_state_value']['value'] = array(
+    3 => '3',
+    2 => '2',
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_application_state_value']['group'] = 1;
   /* Filter criterion: Content: Display (field_display_on_finder_select) */
   $handler->display->display_options['filters']['field_display_on_finder_select_value']['id'] = 'field_display_on_finder_select_value';
   $handler->display->display_options['filters']['field_display_on_finder_select_value']['table'] = 'field_data_field_display_on_finder_select';
@@ -828,16 +839,6 @@ function gsb_feature_program_instance_display_views_default_views() {
     'visible' => 'visible',
   );
   $handler->display->display_options['filters']['field_display_on_finder_select_value']['group'] = 1;
-  /* Filter criterion: Content: Application State (field_application_state) */
-  $handler->display->display_options['filters']['field_application_state_value']['id'] = 'field_application_state_value';
-  $handler->display->display_options['filters']['field_application_state_value']['table'] = 'field_data_field_application_state';
-  $handler->display->display_options['filters']['field_application_state_value']['field'] = 'field_application_state_value';
-  $handler->display->display_options['filters']['field_application_state_value']['relationship'] = 'field_application_deadlines_node';
-  $handler->display->display_options['filters']['field_application_state_value']['value'] = array(
-    2 => '2',
-    1 => '1',
-  );
-  $handler->display->display_options['filters']['field_application_state_value']['group'] = 1;
   /* Filter criterion: Field collection item: Location Category (field_program_location_category) */
   $handler->display->display_options['filters']['field_program_location_category_tid']['id'] = 'field_program_location_category_tid';
   $handler->display->display_options['filters']['field_program_location_category_tid']['table'] = 'field_data_field_program_location_category';

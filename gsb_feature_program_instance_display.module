@@ -156,4 +156,3 @@ function gsb_feature_program_instance_display_module_implements_alter(&$implemen
     }
   }
 }
-
